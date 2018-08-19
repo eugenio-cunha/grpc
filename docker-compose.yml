@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile
+    expose:
+      - '50051'
+    ports:
+      - '50051:50051'
+    networks:
+      - grpc
+  client:
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+    depends_on:
+      - server
+    networks:
+      - grpc
+
+networks:
+  grpc:
+    driver: bridge

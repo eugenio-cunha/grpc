@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package user;
+
+// A definição de serviço do crud.
+service crud {
+  rpc create (createRequest) returns (createReply) {}
+  rpc read (readRequest) returns (readReply) {}
+  rpc update (updateRequest) returns (updateReply) {}
+  rpc remove (removeRequest) returns (removeReply) {}
+}
+
+// CREATE
+message createRequest {
+  string firstName = 1;
+  string lastName = 2;
+}
+message createReply {
+  int32 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
+
+// READ
+message readRequest {
+  int32 id = 1;
+}
+message readReply {
+  int32 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
+
+// UPDATE
+message updateRequest {
+  int32 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
+message updateReply {
+  int32 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
+
+// DELETE
+message removeRequest {
+  int32 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
+message removeReply {
+  int32 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
